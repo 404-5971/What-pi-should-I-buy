@@ -1,6 +1,9 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+import random
 
-# Create your views here.
 def mainpage(request):
-    return HttpResponse("This is an html TEXT YO! Good bye world!")
+    template = 'index.html'
+    randomVariable = random.choice(range(0, 10000))
+    
+    context = { 'test': randomVariable}
+    return render(request, template, context)
